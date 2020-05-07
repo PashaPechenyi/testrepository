@@ -1,0 +1,56 @@
+@import "../../../styles/sassFiles/variables";
+
+
+.form {
+  max-width: 470px;
+  width: 100%;
+}
+
+.formPar {
+  display: block;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
+.positionPar {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.formButton {
+  
+  border: 0;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+// Стили елементов при ошибке и в активном состоянии
+.formActive {
+  border: 1px solid $secondary_color;
+  box-shadow: 0 0 0 3px rgba($secondary_color, 0.1);
+  border-radius: 5px;
+}
+
+.formActiveLine {
+  border-right: 1px solid $secondary_color;
+}
+
+.formError {
+  border: 1px solid $primary_color !important;
+  border-radius: 5px;
+}
+
+.formErrorLine {
+  border-right: 1px solid $primary_color;
+}
+
+.activeInputError {
+  border: 1px solid $primary_color;
+  box-shadow: 0 0 0 3px rgba($primary_color, 0.3) !important;
+  border-radius: 5px;
+}

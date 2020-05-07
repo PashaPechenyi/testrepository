@@ -1,0 +1,13 @@
+.users_block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 479px) {
+  .users_block {
+  justify-content: center;
+  
+  }
+}
+

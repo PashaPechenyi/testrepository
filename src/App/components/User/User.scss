@@ -1,0 +1,47 @@
+@import "../../../styles/sassFiles/variables";
+@import "../../../styles/sassFiles/usefullElements";
+
+.user {
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: left;
+  margin-bottom: 60px;
+
+  * {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.usersPhoto {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 479px) {
+  .user {
+    width: 60%;
+  }
+}

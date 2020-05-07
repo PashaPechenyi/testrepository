@@ -1,0 +1,128 @@
+@import "../../../styles/sassFiles/variables";
+@import "../../../styles/sassFiles/usefullElements";
+
+.header_container {
+  height: 60px;
+}
+
+.active_link {
+  color: $secondary_color;
+}
+
+.htmlBody {
+  overflow-y: hidden;
+}
+
+.header_inner {
+  position: fixed;
+  margin: 0 auto;
+  top: 0;
+  background-color: $background_color;
+  max-width: 1170px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+
+  .logo {
+    padding-left: 30px;
+    height: 100%;
+    z-index: 2;
+    background-color: $background_color;
+    display: flex;
+    align-items: center;
+  }
+
+  .desktop_nav {
+    margin-right: 30px;
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    li {
+      margin: auto 15px;
+    }
+
+    a:hover {
+      color: $primary_color;
+    }
+  }
+
+  .headerForMobile {
+    display: none;
+
+    .icon_menu {
+      margin-right: 30px;
+    }
+
+    nav {
+      z-index: 2;
+      position: absolute;
+      left: 0px;
+      top: 60px;
+      width: 290px;
+      background-color: $background_color;
+
+      li {
+        padding: 10px 0;
+        padding-left: 30px;
+        cursor: pointer;
+
+        &:nth-child(5n + 1) {
+          border-top: 1px solid #e7e7e7;
+          padding-top: 20px;
+        }
+
+        &:nth-child(5n) {
+          padding-bottom: 20px;
+        }
+      }
+    }
+
+    .opacity {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(24, 24, 24, 0.7);
+      z-index: 1;
+    }
+  }
+}
+
+/* For smartphones and tablets */
+@media screen and (max-width: 768px) {
+  .header_inner {
+    .logo {
+      width: 290px;
+    }
+    .desktop_nav {
+      display: none;
+    }
+
+    .headerForMobile {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .header_inner {
+    .logo {
+      width: 270px;
+    }
+    .headerForMobile {
+      .icon_menu {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      nav {
+        width: 270px;
+      }
+    }
+  }
+}

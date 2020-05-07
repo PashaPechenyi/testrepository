@@ -1,0 +1,22 @@
+@import "../../../styles/sassFiles/variables";
+@import "../../../styles/sassFiles/usefullElements";
+
+.inputRadio {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  border: 1px solid #aaa;
+  outline: none;
+  transition: 0.2s all linear;
+  margin-right: 15px;
+  margin-top: 10px;
+
+  &:checked {
+    border: 5px solid $secondary_color;
+  }
+}
