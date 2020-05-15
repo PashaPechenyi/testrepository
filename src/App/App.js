@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from "react";
-import Users from "./components/UserWrapper/UserWrapper";
-import SignUp from "./components/SignUp/SignUp";
-import Header from "./components/Header/Header";
-import About from "./components/About/About";
-import Relationships from "./components/Relationships/Relationships";
+import Users from "./containers/Users/Users";
+import SignUp from "./containers/SignUp/SignUp";
+import Header from "./containers/Header/Header";
+import About from "./containers/About/About";
+import Relationships from "./containers/Relationships/Relationships";
 
 const App = () => {
   const [isReloadUsers, setRealoadUsers] = useState(false);
-  const [isDisabledButton, setDasabledButton] = useState(true);
+  const [isDisabledButton, setDasabledButton] = useState(false);
 
   const changeReloadUsers = () => {
     setRealoadUsers(!isReloadUsers);
@@ -29,6 +29,9 @@ const App = () => {
         isDisabledButton={isDisabledButton}
         changeDisabledButton={changeDisabledButton}
       />
+      <footer className="footerTask">
+        {"\u00A9 "}abz.agency specially for the test task
+      </footer>
     </Fragment>
   );
 };

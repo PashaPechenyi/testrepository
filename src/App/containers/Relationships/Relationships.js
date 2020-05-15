@@ -17,7 +17,7 @@ const Relationships = ({ isDisabledButton }) => {
           </div>
 
           <div className="relationship_text">
-            <h3>I am cool frontend developer</h3>
+            <h2>I am cool frontend developer</h2>
             <p>
               We will evaluate how clean your approach to writing CSS and
               Javascript code is. You can use any CSS and Javascript 3rd party

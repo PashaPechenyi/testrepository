@@ -1,12 +1,16 @@
 import React from "react";
 import "./CompletedMessage.scss";
 
-const CompletedMessage = ({ onClick, text, buttonText }) => {
+const CompletedMessage = ({ onClick, text }) => {
+  let isError = false;
+  if (text !== "You have succesfully passed the registration") {
+    isError = true;
+  }
   return (
     <div>
-      <div className="opacity"></div>
+      <div className="opacityMessage"></div>
       <div className="completedMessage">
-        <h2>Congratulations</h2>
+        <h2>{isError ? "Uuups!!" : "Congratulations"}</h2>
         <svg
           onClick={onClick}
           class="bi bi-x"
@@ -30,8 +34,8 @@ const CompletedMessage = ({ onClick, text, buttonText }) => {
 
         <p>{text}</p>
 
-        <button className="formButton" onClick={onClick}>
-          <span>{buttonText}</span>
+        <button className="formButton primaryLink" onClick={onClick}>
+          <span>{isError ? "Ok" : "Great"}</span>
         </button>
       </div>
     </div>

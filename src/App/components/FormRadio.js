@@ -1,7 +1,12 @@
 import React, { Fragment } from "react";
-import "./FormRadio.scss";
 
-let FormRadio = ({ id, name, onChange, activePosition_id }) => {
+let FormRadio = ({
+  id,
+  name,
+  onChange,
+  activePosition_id,
+  isDisabledButton,
+}) => {
   let chackedValue = false;
   if (activePosition_id === id) {
     chackedValue = true;
@@ -18,6 +23,7 @@ let FormRadio = ({ id, name, onChange, activePosition_id }) => {
           onChange(id);
         }}
         className="inputRadio"
+        disabled={isDisabledButton}
       />
       <label htmlFor={id}>{name}</label>
       <br />

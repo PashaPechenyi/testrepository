@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import "./FormInputs.scss";
 
 const FormInpurs = ({
   id,
@@ -12,6 +11,7 @@ const FormInpurs = ({
   extraParagraphValue,
   onFocus,
   onBlur,
+  isDisabledButton,
 }) => {
   return (
     <Fragment>
@@ -24,9 +24,12 @@ const FormInpurs = ({
             placeholder={placeholder}
             onChange={onChange}
             value={value}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            className="formInputs"
+            className={
+              isDisabledButton
+                ? "formInputs formInputsDisabled"
+                : "formInputs formActive"
+            }
+            disabled={isDisabledButton}
           />
           {extraParagraphValue && (
             <p className="formPar">{extraParagraphValue}</p>
@@ -35,14 +38,12 @@ const FormInpurs = ({
       ) : (
         <Fragment>
           <input
-           id={id}
+            id={id}
             type="text"
             placeholder={placeholder}
             onChange={onChange}
             value={value}
-            className=" formInputs formError"
-            onFocus={onFocus}
-            onBlur={onBlur}
+            className=" formInputs formError activeInputError"
           />
           <p className="formPar" style={{ color: "#ef5b4c" }}>
             Error
@@ -64,6 +65,7 @@ FormInpurs.propTypes = {
   extraParagraphValue: PropTypes.string,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  isDisabledButton: PropTypes.bool,
 };
 
 FormInpurs.defaultProps = {
@@ -75,6 +77,7 @@ FormInpurs.defaultProps = {
   extraParagraphValue: null,
   onFocus: () => {},
   onBlur: () => {},
+  isDisabledButton: false,
 };
 
 export default FormInpurs;

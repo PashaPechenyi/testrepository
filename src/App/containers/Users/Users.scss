@@ -1,0 +1,111 @@
+// Стили блока вывода пользователей Users
+
+@import "../../../styles/sassFiles/variables";
+
+.users_wrapper {
+  background-color: $background_color2;
+  width: 100%;
+  padding: 150px 3%;
+
+  button {
+    margin: -20px auto 0;
+    border: 0;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.users_title {
+  h1 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  p {
+    text-align: center;
+    color: #444;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .users_wrapper {
+    padding: 110px 3%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .users_wrapper {
+    padding: 80px 0;
+  }
+
+  .users_title {
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+// Стили UsersBlock
+.users_block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 479px) {
+  .users_block {
+    justify-content: center;
+  }
+} // Стили UsersBlock
+
+// Стили блока User
+.user {
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: left;
+  margin-bottom: 60px;
+
+  * {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.usersPhoto {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 479px) {
+  .user {
+    width: 60%;
+  }
+} // Стили блока User

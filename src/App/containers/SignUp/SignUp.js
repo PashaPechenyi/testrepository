@@ -1,12 +1,11 @@
 import React from "react";
-import Form from "../../containers/Form/Form";
+import Form from "../../components/Form";
 import "./SignUp.scss";
 
 const SignUp = ({ reloadUsers, isDisabledButton, changeDisabledButton }) => {
   console.log(isDisabledButton);
   return (
     <section className="signUp">
-   
       <a name="signUp"></a>
       <div className="container signUp_wrapper">
         <div className="signUp_text">

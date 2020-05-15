@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from "react";
-import FormRadio from "../../components/FormRadio/FormRadio";
-import FormFile from "../../components/FormFile/FormFile";
-import FormInputs from "../../components/FormInputs/FormInputs";
-import CompletedMessage from "../../components/CompletedMessage/CompletedMessage";
-import "./Form.scss";
+import FormRadio from "./FormRadio";
+import FormFile from "./FormFile";
+import FormInputs from "./FormInputs";
+import CompletedMessage from "./CompletedMessage/CompletedMessage";
 
 const INPUTS_DATA = [
   {
@@ -44,8 +43,7 @@ export default class Form extends Component {
     photoError: false,
     radioError: false,
     completedMessage: false,
-    completedMessageText: " You have succesfully passed the registration",
-    completedMessageButton: "Great",
+    completedMessageText: "You have succesfully passed the registration",
   };
 
   fileInputRef = React.createRef();
@@ -97,49 +95,6 @@ export default class Form extends Component {
     this.setState(({ completedMessage }) => ({
       completedMessage: !completedMessage,
     }));
-  };
-
-  // Методы для стилизации input[type:text] при фокусе
-  addInputClass = ({ target }) => {
-    if (this.state[target.id + "Error"]) {
-      target.classList.add("activeInputError");
-    } else {
-      target.classList.add("formActive");
-    }
-  };
-
-  removeInputClass = ({ target }) => {
-    if (this.state[target.id + "Error"]) {
-      target.classList.remove("activeInputError");
-    } else {
-      target.classList.remove("formActive");
-    }
-  };
-
-  // Управление классами при наведении и ошибке для input[type:file]
-
-  addFileClass = (activeClass1, activeClass2) => {
-    this.fileInputRef.current
-      .closest(".formInputBlock")
-      .querySelector(".formInputWrapper")
-      .classList.add(activeClass1);
-
-    this.fileInputRef.current
-      .closest(".formInputBlock")
-      .querySelector(".fileInputBlock")
-      .classList.add(activeClass2);
-  };
-
-  removeFileClass = (activeClass1, activeClass2) => {
-    this.fileInputRef.current
-      .closest(".formInputBlock")
-      .querySelector(".formInputWrapper")
-      .classList.remove(activeClass1);
-
-    this.fileInputRef.current
-      .closest(".formInputBlock")
-      .querySelector(".fileInputBlock")
-      .classList.remove(activeClass2);
   };
 
   //Вызов методов валидации формы (validation()) и ее регистрации (registration())
@@ -195,8 +150,7 @@ export default class Form extends Component {
             phone: "",
             photo: "Upload your photo",
             completedMessageText:
-              " You have succesfully passed the registration",
-            completedMessageButton: "Great",
+              "You have succesfully passed the registration",
           });
 
           //перезагружаем юзеров
@@ -208,7 +162,6 @@ export default class Form extends Component {
           console.log(data);
           this.setState({
             completedMessageText: `Error!    ${data.message}.`,
-            completedMessageButton: "Ok",
           });
           this.changeVisibilityCompletedMessage();
         }
@@ -296,6 +249,33 @@ export default class Form extends Component {
     return error;
   };
 
+  // Управление классами при наведении и ошибке для input[type:file]
+
+  addFileClass = (activeClass1, activeClass2) => {
+    console.log(this.fileInputRef.current);
+    this.fileInputRef.current
+      .closest(".formInputBlock")
+      .querySelector(".formInputWrapper")
+      .classList.add(activeClass1);
+
+    this.fileInputRef.current
+      .closest(".formInputBlock")
+      .querySelector(".textBlock")
+      .classList.add(activeClass2);
+  };
+
+  removeFileClass = (activeClass1, activeClass2) => {
+    this.fileInputRef.current
+      .closest(".formInputBlock")
+      .querySelector(".formInputWrapper")
+      .classList.remove(activeClass1);
+
+    this.fileInputRef.current
+      .closest(".formInputBlock")
+      .querySelector(".textBlock")
+      .classList.remove(activeClass2);
+  };
+
   render() {
     const state = this.state;
     const {
@@ -306,7 +286,6 @@ export default class Form extends Component {
       completedMessage,
       radioError,
       completedMessageText,
-      completedMessageButton,
     } = state;
 
     const { isDisabledButton } = this.props;
@@ -317,7 +296,6 @@ export default class Form extends Component {
           <CompletedMessage
             onClick={this.changeVisibilityCompletedMessage}
             text={completedMessageText}
-            buttonText={completedMessageButton}
           />
         )}
         <form className="form" onSubmit={this.formSubmit}>
@@ -340,8 +318,7 @@ export default class Form extends Component {
                 error={state[error]}
                 paragraphValue={paragraphValue}
                 extraParagraphValue={extraParagraphValue}
-                onFocus={this.addInputClass}
-                onBlur={this.removeInputClass}
+                isDisabledButton={isDisabledButton}
               />
             )
           )}
@@ -355,6 +332,7 @@ export default class Form extends Component {
               id={id}
               activePosition_id={activePosition_id}
               onChange={this.radioInputChange}
+              isDisabledButton={isDisabledButton}
             />
           ))}
           {radioError && (
@@ -374,6 +352,7 @@ export default class Form extends Component {
             onClick={this.addFileClass}
             onChangeMain={this.showPhotoName}
             onChangeRemove={this.removeFileClass}
+            isDisabledButton={isDisabledButton}
           />
           {!isDisabledButton ? (
             <button className="formButton primaryLink" type="submit">

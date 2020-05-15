@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "./FormFile.scss";
+
 
 let FormFile = ({
   photo,
@@ -8,6 +8,7 @@ let FormFile = ({
   onChangeMain,
   onChangeRemove,
   ref1,
+  isDisabledButton,
 }) => {
   return (
     <div className="formInputBlock">
@@ -15,7 +16,7 @@ let FormFile = ({
 
       {!photoError ? (
         <div className="formInputWrapper">
-          <div className="fileInputBlock"> {photo}</div>
+          <div className="textBlock"> {photo}</div>
           <label>
             Brouse
             <input
@@ -24,18 +25,19 @@ let FormFile = ({
               ref={ref1}
               onChange={() => {
                 onChangeMain();
-                onChangeRemove("formActive", "formActiveLine");
+                onChangeRemove("formActiveFile", "formActiveLine");
               }}
               onClick={() => {
-                onClick("formActive", "formActiveLine");
+                onClick("formActiveFile", "formActiveLine");
               }}
+              disabled={isDisabledButton}
             />
           </label>
         </div>
       ) : (
         <Fragment>
           <div className="formInputWrapper formError">
-            <div className="fileInputBlock formErrorLine"> {photo}</div>
+            <div className="textBlock formErrorLine"> {photo}</div>
             <label>
               Brouse
               <input

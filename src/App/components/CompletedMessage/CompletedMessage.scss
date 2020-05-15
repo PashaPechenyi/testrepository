@@ -1,3 +1,5 @@
+// Стили сообщения об успешной регистрации
+
 @import "../../../styles/sassFiles/variables";
 
 .completedMessage {
@@ -38,7 +40,7 @@
   }
 }
 
-.opacity {
+.opacityMessage {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -46,5 +48,5 @@
   left: 0;
   background-color: rgba(24, 24, 24, 0.7);
   z-index: 1;
-  min-width: 320px;
+  min-width: 360px;
 }

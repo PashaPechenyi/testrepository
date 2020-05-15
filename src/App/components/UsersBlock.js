@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
-import User from "../../components/User/User";
-import "./UsersBlock.scss";
+import User from "./User";
 
 const PAGE = "page=";
 const COUNT = "count=";
